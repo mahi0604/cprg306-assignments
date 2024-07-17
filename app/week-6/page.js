@@ -1,14 +1,23 @@
+"use client";
 
-
-import React from 'react';
-import ItemList from './item-list';
+import React, { useState } from "react";
+import NewItem from "./new-item";
+import ItemList from "./item-list";
+import itemsData from "./items.json";
 
 const Page = () => {
+  const [items, setItems] = useState(itemsData);
+
+  const handleAddItem = (newItem) => {
+    setItems([...items, newItem]);
+  };
+
   return (
-    <main className="p-4 bg-gray-100 min-h-screen">
-      <h1 className="text-3xl font-bold mb-6 text-center">Shopping List</h1>
-      <ItemList />
-    </main>
+    <div>
+      <h1>Shopping List</h1>
+      <NewItem onAddItem={handleAddItem} />
+      <ItemList items={items} />
+    </div>
   );
 };
 
