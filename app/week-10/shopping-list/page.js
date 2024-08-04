@@ -5,7 +5,7 @@
 import React, { useState } from "react";
 import NewItem from "./new-item";
 import ItemList from "./item-list";
-import itemsData from "./items.json";
+
 
 const Page = () => {
   const [items, setItems] = useState(itemsData);
